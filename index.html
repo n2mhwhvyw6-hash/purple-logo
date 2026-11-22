@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Degree Show AR</title>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+  <style>
+    html, body { margin: 0; height: 100%; background: #ffffff; font-family: sans-serif; }
+    model-viewer { width: 100%; height: 100%; }
+    /* The AR button — restyle this however you like */
+    .ar-button {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      padding: 14px 28px; border: none; border-radius: 999px;
+      background: #000; color: #fff; font-size: 16px; cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!--
+    Put your exported logo next to this file and name it logo.glb.
+    ar               = turns on AR on phones
+    ar-modes         = uses the best AR available (Android WebXR / Scene Viewer, iPhone Quick Look)
+    ar-placement     = "floor" or "wall" — where the logo sits in the room
+    camera-controls  = lets people spin the logo on screen before opening AR
+    auto-rotate      = slowly rotates the logo on the page
+  -->
+  <model-viewer
+    src="logo.glb"
+    alt="3D logo"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    ar-placement="floor"
+    ar-scale="auto"
+    camera-controls
+    auto-rotate
+    shadow-intensity="1">
+    <button slot="ar-button" class="ar-button">View in your space</button>
+  </model-viewer>
+</body>
+</html>
